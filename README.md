@@ -1,2 +1,23 @@
 # tetra-toolkit
-Tools and documentation for TETRA decoding
+Tools and documentation for TETRA decoding.
+
+The installation instructions are given for Ubuntu 15.10.
+
+## Install gnuradio and libosmosdr
+
+```
+sudo apt-get install gnuradio libosmosdr0 osmo-sdr gr-osmosdr
+```
+
+## Install the library for your device
+
+Depending on your device, you have to install a different library (see http://sdr.osmocom.org/trac/wiki/GrOsmoSDR).
+
+If you have a RTL-SDR dongle, use :
+```
+sudo apt-get install rtl-sdr librtlsdr0
+```
+
+## Download the GRC file
+
+TODO
