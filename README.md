@@ -22,10 +22,10 @@ sudo apt-get install rtl-sdr librtlsdr0
 
 The GNU Radio Companion files are located in the `grc` folder.
 
-First, you must build the TETRA Decoder block : 
+First, you must build the TETRA Demod block : 
 
 ```
-grcc grc/tetra_decoder.grc
+grcc grc/tetra_demod.grc
 ```
 
 Next, open the file `grc/tetra_rx.grc` in GNU Radio Companion, and execute it.

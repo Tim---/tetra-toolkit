@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>tetra_decoder</value>
+      <value>tetra_demod</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -70,7 +70,7 @@
     </param>
     <param>
       <key>title</key>
-      <value>TETRA Decoder</value>
+      <value>TETRA Demod</value>
     </param>
   </block>
   <block>
