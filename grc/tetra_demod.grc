@@ -196,23 +196,38 @@ blocks:
     coordinate: [800, 539]
     rotation: 0
     state: enabled
-- name: analog_feedforward_agc_cc_0
-  id: analog_feedforward_agc_cc
+- name: symbols_per_timeslot
+  id: variable
   parameters:
-    affinity: ''
-    alias: ''
     comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_samples: '1024'
-    reference: '1.0'
+    value: '510'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [992, 195]
+    coordinate: [1192, 172.0]
     rotation: 0
     state: enabled
+- name: analog_agc_xx_0
+  id: analog_agc_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    gain: '1.0'
+    max_gain: '65536'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rate: 1/(samples_per_symbol * symbols_per_timeslot)
+    reference: '1.0'
+    type: complex
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [984, 180.0]
+    rotation: 0
+    state: true
 - name: blocks_unpack_k_bits_bb_0_0_0_0
   id: blocks_unpack_k_bits_bb
   parameters:
@@ -464,7 +479,7 @@ blocks:
     state: enabled
 
 connections:
-- [analog_feedforward_agc_cc_0, '0', digital_fll_band_edge_cc_0, '0']
+- [analog_agc_xx_0, '0', digital_fll_band_edge_cc_0, '0']
 - [blocks_unpack_k_bits_bb_0_0_0_0, '0', pad_sink_0, '0']
 - [digital_constellation_decoder_cb_0_0, '0', blocks_unpack_k_bits_bb_0_0_0_0, '0']
 - [digital_diff_phasor_cc_0_0, '0', digital_constellation_decoder_cb_0_0, '0']
@@ -472,7 +487,7 @@ connections:
 - [digital_fll_band_edge_cc_0, '0', digital_pfb_clock_sync_xxx_0, '0']
 - [digital_pfb_clock_sync_xxx_0, '0', digital_diff_phasor_cc_0_0, '0']
 - [freq_xlating_fir_filter_xxx_0, '0', mmse_resampler_xx_0, '0']
-- [mmse_resampler_xx_0, '0', analog_feedforward_agc_cc_0, '0']
+- [mmse_resampler_xx_0, '0', analog_agc_xx_0, '0']
 - [mmse_resampler_xx_0, '0', pad_sink_1, '0']
 - [pad_source_0, '0', freq_xlating_fir_filter_xxx_0, '0']
 
